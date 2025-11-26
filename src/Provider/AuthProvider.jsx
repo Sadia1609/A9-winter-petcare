@@ -1,9 +1,11 @@
-import { createUserWithEmailAndPassword, onAuthStateChanged } from 'firebase/auth';
+import { createUserWithEmailAndPassword, GoogleAuthProvider, onAuthStateChanged, signInWithPopup } from 'firebase/auth';
 import React, { createContext, useEffect, useState } from 'react';
 import auth from '../firebase/firebase.config';
 
 // eslint-disable-next-line react-refresh/only-export-components
 export const AuthContext = createContext();
+
+const googleProvider = new GoogleAuthProvider
 
 const AuthProvider = ({children}) => {
 
@@ -16,6 +18,12 @@ const AuthProvider = ({children}) => {
         console.log(email,pass)
         return createUserWithEmailAndPassword(auth,email,pass)
     }
+
+
+    const handleGoogleSignin=()=>{
+        return signInWithPopup(auth,googleProvider)
+    }
+
 
     useEffect(()=>{
         const unsubscribe = onAuthStateChanged(auth, (currentUser)=>{
@@ -34,6 +42,8 @@ const AuthProvider = ({children}) => {
         registerWithEmailPassword,
         setUser,
         user,
+        handleGoogleSignin,
+
     }
 
     return <AuthContext value={authData}>

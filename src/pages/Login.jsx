@@ -3,10 +3,11 @@ import React, { useContext } from 'react';
 import { Link } from 'react-router';
 import { AuthContext } from '../Provider/AuthProvider';
 import auth from '../firebase/firebase.config';
+import { FcGoogle } from "react-icons/fc";
 
 const Login = () => {
 
-  const {setUser, user} = useContext(AuthContext)
+  const {setUser, handleGoogleSignin} = useContext(AuthContext)
 
   const handleSubmit = (e)=>{
     e.preventDefault();
@@ -25,8 +26,17 @@ const Login = () => {
   });
   }
 
-  console.log(user)
 
+  const googleSignin = ()=>{
+    handleGoogleSignin()
+    .then(result=>{
+      const user = result.user
+      setUser(user)
+    })
+    .catch(err=> console.log(err))
+
+  }
+ 
 
     return (
         <div>
@@ -41,6 +51,9 @@ const Login = () => {
           <label className="label">Password</label>
           <input name='password' type="password" className="input" placeholder="Password" />
           <div><a className="link link-hover">Forgot password?</a></div>
+
+        <button onClick={googleSignin} className='btn'><FcGoogle /></button>
+
           <div><span>Don't have an account? </span><Link to={'/signup'} className='text-blue-500'>Register</Link></div>
           <button className="btn btn-neutral mt-4">Login</button>
         </form>
