@@ -44,9 +44,7 @@ const WinterCareTips = () => {
               <h3 className="card-title text-primary">{tip.title}</h3>
               <p className="text-sm opacity-80">{tip.description}</p>
 
-              <button className="btn btn-primary btn-sm mt-3">
-                Learn More
-              </button>
+              
             </div>
           </div>
         ))}
