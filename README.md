@@ -2,7 +2,7 @@ Winter Pet Care
 A modern and responsive web application that helps pet owners take better care of their pets during cold and snowy seasons. The platform offers seasonal tips, professional consultations, and various pet-friendly winter services. Built using React, styled with Tailwind CSS, and enhanced with smooth animations and UI components.
 
 Live Demo
-👉 Live URL: Add your deployed link here
+👉 Live URL: https://a9winterpetcare.netlify.app/
 
 Project Purpose
 Winter Pet Care is designed to support pet owners with essential resources during the winter months. The platform provides expert advice, tips, and services to ensure pets stay warm, safe, and healthy in cold weather.
