@@ -22,7 +22,7 @@ const Profile = () => {
         const photoUrl = e.target.photoUrl.value;
 
          updateProfile(auth.currentUser, {
-  displayName:name, photoURL: photoUrl
+  displayName: name, photoURL: photoUrl
 }).then(() => {
  
  setUser({...user,photoURL:photoUrl, displayName:name })
