@@ -5,7 +5,7 @@ import auth from '../firebase/firebase.config';
 // eslint-disable-next-line react-refresh/only-export-components
 export const AuthContext = createContext();
 
-const googleProvider = new GoogleAuthProvider
+const googleProvider = new GoogleAuthProvider();
 
 const AuthProvider = ({children}) => {
 
@@ -27,10 +27,10 @@ const AuthProvider = ({children}) => {
 
     useEffect(()=>{
         const unsubscribe = onAuthStateChanged(auth, (currentUser)=>{
-            if(currentUser){
+            
                 setUser(currentUser)
                 setLoading(false)
-            }
+            
 
         })
         return ()=>{

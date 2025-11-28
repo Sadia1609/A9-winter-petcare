@@ -5,6 +5,12 @@ import { updateProfile } from 'firebase/auth';
 import auth from '../firebase/firebase.config';
 import { FcGoogle } from 'react-icons/fc';
 
+import toast from 'react-hot-toast';
+
+
+
+
+
 const Register = () => {
   const {registerWithEmailPassword, setUser, user,handleGoogleSignin} = useContext(AuthContext);
 
@@ -32,16 +38,24 @@ const Register = () => {
     .then((userCredential)=>{
      
       updateProfile(auth.currentUser, {
-  displayName:name, photoURL: photoUrl
+  displayName: name, photoURL: photoUrl
 }).then(() => {
  
- setUser(userCredential.user)
+ setUser(userCredential.user);
+
+ toast.success("Account created successfully!");
+        
 }).catch((error) => {
-  console.log(error)
+  console.log(error);
+  toast.error("Failed to update profile.");
   
 });
+
+
       
     })
+
+    
     .catch(err=>{
       console.log(err);
     })

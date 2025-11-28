@@ -34,15 +34,15 @@ const Profile = () => {
 
 
     return (
-        <div className='flex flex-col justify-center items-center'>
+        <div className='flex flex-col justify-center items-center my-12'>
            <div className="avatar">
-    <div className="w-12">
+    <div className="w-12 ">
       <img src={user?.photoURL} />
     </div>
   </div>
   <p>{user?.displayName}</p>
   <p>{user?.email}</p>
-  <button onClick={handleOpenForm} className='btn'>Update Profile</button>
+  <button onClick={handleOpenForm} className='btn  bg-blue-950 text-white my-12'>Update Profile</button>
   
 
         {
@@ -56,7 +56,7 @@ const Profile = () => {
           
 
        
-          <button className="btn btn-neutral mt-4">Update</button>
+          <button className="btn btn-neutral mt-4 bg-white text-blue-950">Update</button>
         </form>
             )
         }
